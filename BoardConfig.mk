@@ -52,8 +52,8 @@ GET_FRAMEBUFFER_FORMAT_FROM_HWC := false
 BOOTLOADER_GCC_VERSION := arm-eabi-4.8
 BOOTLOADER_PLATFORM := msm8909# use msm8952 LK configuration
 
-TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+#TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+#TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_CPU_ABI  := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := cortex-a7
@@ -95,7 +95,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_PERSISTIMAGE_FILE_SYSTEM_TYPE := ext4
 
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk  androidboot.selinux=permissive
 
 BOARD_EGL_CFG := device/qcom/msm8909/egl.cfg
 
@@ -117,7 +117,6 @@ PROTOBUF_SUPPORTED := false
 
 TARGET_USES_ION := true
 TARGET_USES_NEW_ION_API :=true
-TARGET_USES_QCOM_BSP := true
 
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
 TARGET_INIT_VENDOR_LIB := libinit_msm
@@ -133,9 +132,14 @@ TARGET_PER_MGR_ENABLED := true
 #MALLOC_IMPL := dlmalloc
 MALLOC_SVELTE := true
 
+ifeq ($(TARGET_USES_AOSP), true)
+TARGET_HW_DISK_ENCRYPTION := false
+else
+# SDClang configuration 
+SDCLANG := true
 #Enable HW based full disk encryption
 TARGET_HW_DISK_ENCRYPTION := true
-
+endif
 # Enable sensor multi HAL
 #USE_SENSOR_MULTI_HAL := true
 
@@ -153,4 +157,4 @@ ifneq ($(TARGET_BUILD_VARIANT),user)
 endif
 
 # enable IMS for this target
-TARGET_USES_IMS := true
+TARGET_USES_IMS := false

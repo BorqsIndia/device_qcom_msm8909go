@@ -23,7 +23,7 @@ ro.telephony.default_network=22,20
 
 debug.sf.hw=1
 debug.egl.hw=1
-debug.composition.type=dyn
+#debug.composition.type=dyn
 debug.hwc.dynThreshold=2.5
 debug.mdpcomp.logs=0
 dalvik.vm.heapsize=36m
@@ -81,7 +81,7 @@ persist.timed.enable=true
 ro.opengles.version=196608
 
 # System property for cabl
-ro.qualcomm.cabl=2
+#ro.qualcomm.cabl=2
 
 # System property for QDCM
 persist.tuning.qdcm=1
@@ -198,3 +198,4 @@ ro.sys.fw.bservice_age=5000
 
 #set device emmc size
 ro.emmc_size=8GB
+qemu.hw.mainkeys=0
