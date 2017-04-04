@@ -2,6 +2,9 @@
 TARGET_USES_AOSP_FOR_AUDIO := true
 TARGET_USES_AOSP := true
 TARGET_USES_QCOM_BSP := false
+TARGET_USES_HWC2 := true
+TARGET_USES_HWC2ON1ADAPTER := true
+
 ifeq ($(TARGET_USES_QCOM_BSP), true)
 # Add QC Video Enhancements flag
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
@@ -48,6 +51,9 @@ ifneq (,$(strip $(wildcard $(PRODUCT_RENDERING_ENGINE_REVLIB))))
 #   MULTI_LANG_ZAWGYI := REVERIE
 endif
 
+# add vendor manifest file
+PRODUCT_COPY_FILES += \
+    device/qcom/msm8909/vintf.xml:$(TARGET_COPY_OUT_VENDOR)/manifest.xml
 
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
@@ -120,6 +126,18 @@ PRODUCT_PACKAGES += \
 AntHalService \
 libantradio \
 antradio_app
+
+# Gralloc
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.mapper@2.0-impl
+
+# HW Composer
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.composer@2.1-service
+
 
 #Enable keymaster Impl HAL Compilation
 PRODUCT_PACKAGES += android.hardware.keymaster@3.0-impl
