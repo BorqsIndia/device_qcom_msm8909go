@@ -11,15 +11,15 @@ TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 endif #TARGET_USES_QCOM_BSP
 
 ifeq ($(TARGET_USES_AOSP),true)
-TARGET_ENABLE_QC_AV_ENHANCEMENTS := false
 TARGET_USES_QTIC := false
 else
 DEVICE_PACKAGE_OVERLAYS := device/qcom/msm8937_64/overlay
-TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 TARGET_USES_NQ_NFC := true
 TARGET_USES_QTIC := true
 -include $(QCPATH)/common/config/qtic-config.mk
 endif
+
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
 #for android_filesystem_config.h
 PRODUCT_PACKAGES += \
@@ -34,6 +34,15 @@ PRODUCT_COPY_FILES += device/qcom/msm8909/media/media_profiles_8909.xml:system/e
                       device/qcom/msm8909/media/media_codecs_8909.xml:system/etc/media_codecs.xml \
                       device/qcom/msm8909/media/media_codecs_performance_8909.xml:system/etc/media_codecs_performance.xml
 endif
+
+
+# video seccomp policy files
+# copy to system/vendor as well (since some devices may symlink to system/vendor and not create an actual partition for vendor)
+PRODUCT_COPY_FILES += \
+    device/qcom/msm8909/seccomp/mediacodec-seccomp.policy:vendor/etc/seccomp_policy/mediacodec.policy \
+    device/qcom/msm8909/seccomp/mediaextractor-seccomp.policy:vendor/etc/seccomp_policy/mediaextractor.policy \
+    device/qcom/msm8909/seccomp/mediacodec-seccomp.policy:system/vendor/etc/seccomp_policy/mediacodec.policy \
+    device/qcom/msm8909/seccomp/mediaextractor-seccomp.policy:system/vendor/etc/seccomp_policy/mediaextractor.policy
 
 PRODUCT_PROPERTY_OVERRIDES += \
        dalvik.vm.heapgrowthlimit=128m \
