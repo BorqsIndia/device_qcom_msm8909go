@@ -135,13 +135,16 @@ MALLOC_SVELTE := true
 ifeq ($(TARGET_USES_AOSP), true)
 TARGET_HW_DISK_ENCRYPTION := false
 else
-# SDClang configuration 
+# SDClang configuration
 SDCLANG := true
 #Enable HW based full disk encryption
 TARGET_HW_DISK_ENCRYPTION := true
 endif
 # Enable sensor multi HAL
-#USE_SENSOR_MULTI_HAL := true
+USE_SENSOR_MULTI_HAL := true
+
+#Disable SSC Feature
+TARGET_USES_SSC := false
 
 FEATURE_QCRIL_UIM_SAP_SERVER_MODE := true
 
