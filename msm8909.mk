@@ -78,7 +78,7 @@ PRODUCT_PACKAGES += libGLES_android
 # QTI extended functionality of android telephony.
 # Required for MSIM manual provisioning and other related features.
 PRODUCT_PACKAGES += telephony-ext
-#PRODUCT_BOOT_JARS += telephony-ext
+PRODUCT_BOOT_JARS += telephony-ext
 
 ifneq ($(strip $(QCPATH)),)
 PRODUCT_BOOT_JARS += oem-services
