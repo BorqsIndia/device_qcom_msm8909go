@@ -25,7 +25,7 @@ PRODUCT_PACKAGES += \
     fs_config_files
 
 # Enable features in video HAL that can compile only on this platform
-TARGET_USES_MEDIA_EXTENSIONS := false
+TARGET_USES_MEDIA_EXTENSIONS := true
 
 # media_profiles and media_codecs xmls for msm8909
 ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS), true)
