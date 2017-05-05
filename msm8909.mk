@@ -64,6 +64,8 @@ endif
 PRODUCT_COPY_FILES += \
     device/qcom/msm8909/vintf.xml:$(TARGET_COPY_OUT_VENDOR)/manifest.xml
 
+PRODUCT_PACKAGES += android.hardware.media.omx@1.0-impl
+
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
 
