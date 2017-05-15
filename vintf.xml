@@ -24,7 +24,6 @@ BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
 WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
 -->
 <manifest version="1.0" type="device">
     <hal format="hidl">
@@ -32,20 +31,12 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <transport arch="32+64">passthrough</transport>
         <impl level="generic"></impl>
         <version>2.0</version>
-        <interface>
-            <name>IDevicesFactory</name>
-            <instance>default</instance>
-        </interface>
     </hal>
     <hal format="hidl">
         <name>android.hardware.audio.effect</name>
         <transport arch="32+64">passthrough</transport>
         <impl level="generic"></impl>
         <version>2.0</version>
-        <interface>
-            <name>IEffectsFactory</name>
-            <instance>default</instance>
-        </interface>
     </hal>
     <hal format="hidl">
         <name>android.hardware.soundtrigger</name>
@@ -54,7 +45,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <version>2.0</version>
         <interface>
             <name>ISoundTriggerHw</name>
-            <instance>default</instance>
+            <instance>sound_trigger.primary</instance>
         </interface>
     </hal>
     <!-- video omx hal -->
@@ -69,16 +60,12 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <transport>hwbinder</transport>
         <impl level="generic"></impl>
         <version>1.0</version>
-        <interface>
-            <name>IOmx</name>
-            <instance>default</instance>
-        </interface>
     </hal>
     <!-- /video omx hal -->
-    <!-- display hal -->
+    <!-- display -->
     <hal format="hidl">
         <name>android.hardware.graphics.allocator</name>
-        <transport arch="32+64">passthrough</transport>
+        <transport>hwbinder</transport>
         <impl level="generic"></impl>
         <version>2.0</version>
         <interface>
@@ -98,7 +85,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     </hal>
     <hal format="hidl">
         <name>android.hardware.graphics.composer</name>
-        <transport arch="32+64">passthrough</transport>
+        <transport>hwbinder</transport>
         <impl level="generic"></impl>
         <version>2.1</version>
         <interface>
@@ -106,5 +93,140 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>default</instance>
         </interface>
     </hal>
-    <!-- /display hal -->
+    <hal format="hidl">
+        <name>android.hardware.configstore</name>
+        <transport>hwbinder</transport>
+        <impl level="generic"></impl>
+        <version>1.0</version>
+        <interface>
+            <name>ISurfaceFlingerConfigs</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.light</name>
+        <transport>hwbinder</transport>
+        <impl level="generic"></impl>
+        <version>2.0</version>
+        <interface>
+            <name>ILight</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.memtrack</name>
+        <transport>hwbinder</transport>
+        <impl level="generic"></impl>
+        <version>1.0</version>
+        <interface>
+            <name>IMemtrack</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <!-- /display -->
+    <!-- bluetooth -->
+    <hal format="hidl">
+        <name>android.hardware.bluetooth</name>
+        <transport arch="32+64">hwbinder</transport>
+        <impl level="generic"></impl>
+        <version>1.0</version>
+    </hal>
+    <!-- bluetooth -->
+    <hal format="hidl">
+        <name>android.hardware.power</name>
+        <transport arch="32+64">passthrough</transport>
+        <impl level="generic"></impl>
+        <version>1.0</version>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.boot</name>
+        <transport>hwbinder</transport>
+        <impl level="generic"></impl>
+        <version>1.0</version>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.health</name>
+        <transport>hwbinder</transport>
+        <impl level="generic"></impl>
+        <version>1.0</version>
+    </hal>
+   <!-- RIL -->
+   <hal format="hidl">
+       <name>android.hardware.radio</name>
+       <transport>hwbinder</transport>
+       <impl level="generic"></impl>
+       <version>1.0</version>
+    <interface>
+       <name>IRadio</name>
+       <instance>slot1</instance>
+       <instance>slot2</instance>
+    </interface>
+   </hal>
+   <!-- RIL OEM HOOK -->
+   <hal format="hidl">
+       <name>android.hardware.radio.deprecated</name>
+       <transport>hwbinder</transport>
+       <impl level="generic"></impl>
+       <version>1.0</version>
+    <interface>
+       <name>IOemHook</name>
+       <instance>slot1</instance>
+       <instance>slot2</instance>
+    </interface>
+   </hal>
+   <!-- RIL AUDIO HAL -->
+   <hal format="hidl">
+       <name>vendor.qti.qcril.am</name>
+       <transport>hwbinder</transport>
+       <impl level="generic"></impl>
+       <version>1.0</version>
+       <interface>
+           <name>IQcRilAudio</name>
+           <instance>slot1</instance>
+           <instance>slot2</instance>
+       </interface>
+   </hal>
+    <!-- gnss -->
+    <hal format="hidl">
+        <name>android.hardware.gnss</name>
+        <transport>hwbinder</transport>
+        <impl level="generic"></impl>
+        <version>1.0</version>
+        <interface>
+            <name>IGnss</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <!-- atfwd -->
+    <hal format="hidl">
+        <name>vendor.qti.atcmdfwd</name>
+        <transport>hwbinder</transport>
+        <impl level="generic"></impl>
+        <version>1.0</version>
+        <interface>
+            <name>IAtCmdFwd</name>
+            <instance>AtCmdFwdService</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.vibrator</name>
+        <transport>hwbinder</transport>
+        <impl level="generic"></impl>
+        <version>1.0</version>
+        <interface>
+            <name>IVibrator</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <!-- IMS RTP Service -->
+    <hal format="hidl">
+        <name>com.qualcomm.qti.imsrtpservice</name>
+        <transport>hwbinder</transport>
+        <impl level="generic"></impl>
+            <version>1.0</version>
+            <interface>
+                <name>IRTPService</name>
+                <instance>rtpservice0</instance>
+            </interface>
+    </hal>
 </manifest>

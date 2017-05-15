@@ -136,17 +136,23 @@ AntHalService \
 libantradio \
 antradio_app
 
-# Gralloc
+# Display/Gralloc
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.mapper@2.0-impl
-
-# HW Composer
-PRODUCT_PACKAGES += \
+    android.hardware.graphics.mapper@2.0-impl \
     android.hardware.graphics.composer@2.1-impl \
-    android.hardware.graphics.composer@2.1-service
+    android.hardware.graphics.composer@2.1-service \
+    android.hardware.memtrack@1.0-impl \
+    android.hardware.memtrack@1.0-service \
+    android.hardware.light@2.0-impl \
+    android.hardware.light@2.0-service \
+    android.hardware.configstore@1.0-service
 
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.0-impl \
+    android.hardware.vibrator@1.0-service \
 
 #Enable keymaster Impl HAL Compilation
 PRODUCT_PACKAGES += android.hardware.keymaster@3.0-impl
@@ -169,3 +175,12 @@ PRODUCT_COPY_FILES += \
 # add vendor manifest file
 PRODUCT_COPY_FILES += \
     device/qcom/msm8909/vintf.xml:$(TARGET_COPY_OUT_VENDOR)/manifest.xml
+
+#Boot control HAL test app
+PRODUCT_PACKAGES_DEBUG += bootctl
+
+#Healthd packages
+PRODUCT_PACKAGES += android.hardware.health@1.0-impl \
+                    android.hardware.health@1.0-convert \
+                    android.hardware.health@1.0-service \
+                    libhealthd.msm
