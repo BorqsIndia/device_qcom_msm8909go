@@ -99,6 +99,12 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 an
 
 BOARD_EGL_CFG := device/qcom/msm8909/egl.cfg
 
+ifeq ($(ENABLE_VENDOR_IMAGE), true)
+TARGET_RECOVERY_FSTAB := device/qcom/msm8909/recovery_vendor_variant.fstab
+else
+TARGET_RECOVERY_FSTAB := device/qcom/msm8909/recovery.fstab
+endif
+
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x02000000
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x02000000
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1288491008
@@ -107,6 +113,13 @@ BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
 BOARD_PERSISTIMAGE_PARTITION_SIZE := 33554432
 BOARD_OEMIMAGE_PARTITION_SIZE := 268435456
 BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
+
+ifeq ($(ENABLE_VENDOR_IMAGE), true)
+BOARD_VENDORIMAGE_PARTITION_SIZE := 1073741824
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+TARGET_COPY_OUT_VENDOR := vendor
+VENDOR_FSTAB_ENTRY := "/dev/block/bootdevice/by-name/vendor     /vendor            ext4   ro,barrier=1,discard                             wait"
+endif
 
 
 # Add NON-HLOS files for ota upgrade
