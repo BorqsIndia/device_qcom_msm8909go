@@ -118,7 +118,7 @@ PROTOBUF_SUPPORTED := false
 TARGET_USES_ION := true
 TARGET_USES_NEW_ION_API :=true
 
-TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
+#TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
 TARGET_INIT_VENDOR_LIB := libinit_msm
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
