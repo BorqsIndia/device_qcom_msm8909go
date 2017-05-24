@@ -177,17 +177,17 @@ ro.hwui.text_large_cache_height=2048
 # enable sta proxy bydefault
 persist.mm.sta.enable=1
 #Trim properties
-ro.sys.fw.use_trim_settings=true
-ro.sys.fw.empty_app_percent=50
-ro.sys.fw.trim_empty_percent=100
-ro.sys.fw.trim_cache_percent=100
-ro.sys.fw.trim_enable_memory=1073741824
+ro.vendor.qti.sys.fw.use_trim_settings=true
+ro.vendor.qti.sys.fw.empty_app_percent=50
+ro.vendor.qti.sys.fw.trim_empty_percent=100
+ro.vendor.qti.sys.fw.trim_cache_percent=100
+ro.vendor.qti.sys.fw.trim_enable_memory=1073741824
 
 #Enable Delay service restart
-ro.am.reschedule_service=true
+ro.vendor.qti.am.reschedule_service=true
 
 # Create zram disk
-ro.config.zram=true
+ro.vendor.qti.config.zram=true
 
 # set cutoff voltage to 3200mV
 ro.cutoff_voltage_mv=3200
@@ -197,9 +197,9 @@ ro.core_ctl_min_cpu=2
 ro.core_ctl_max_cpu=4
 
 #Enable B service adj transition by default
-ro.sys.fw.bservice_enable=true
-ro.sys.fw.bservice_limit=5
-ro.sys.fw.bservice_age=5000
+ro.vendor.qti.sys.fw.bservice_enable=true
+ro.vendor.qti.sys.fw.bservice_limit=5
+ro.vendor.qti.sys.fw.bservice_age=5000
 
 #set device emmc size
 ro.emmc_size=8GB
