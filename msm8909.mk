@@ -3,7 +3,6 @@ TARGET_USES_AOSP_FOR_AUDIO := false
 TARGET_USES_AOSP := true
 TARGET_USES_QCOM_BSP := false
 TARGET_USES_HWC2 := true
-TARGET_USES_HWC2ON1ADAPTER := true
 
 ifeq ($(TARGET_USES_QCOM_BSP), true)
 # Add QC Video Enhancements flag
