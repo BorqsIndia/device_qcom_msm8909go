@@ -149,7 +149,7 @@ TARGET_USES_SSC := false
 FEATURE_QCRIL_UIM_SAP_SERVER_MODE := true
 
 # Control flag between KM versions
-TARGET_HW_KEYMASTER_V03 := true
+TARGET_HW_KEYMASTER_V03 := false
 
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm
 
