@@ -143,6 +143,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     wpa_supplicant_overlay.conf \
     p2p_supplicant_overlay.conf
+#for wlan
+   PRODUCT_PACKAGES += \
+       wificond \
+       wifilogd
 
 # MIDI feature
 PRODUCT_COPY_FILES += \
@@ -199,5 +203,4 @@ PRODUCT_PACKAGES += android.hardware.health@1.0-impl \
                     android.hardware.health@1.0-service \
                     libhealthd.msm
 #Supports verity
-PRODUCT_SUPPORTS_VERITY := true
-PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/bootdevice/by-name/system
+PRODUCT_SUPPORTS_VERITY := false
