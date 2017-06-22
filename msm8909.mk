@@ -20,6 +20,17 @@ endif
 
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
+# Default vendor configuration.
+ifeq ($(ENABLE_VENDOR_IMAGE),)
+ENABLE_VENDOR_IMAGE := true
+endif
+
+# Disable QTIC until it's brought up in split system/vendor
+# configuration to avoid compilation breakage.
+ifeq ($(ENABLE_VENDOR_IMAGE), true)
+TARGET_USES_QTIC := false
+endif
+
 #for android_filesystem_config.h
 PRODUCT_PACKAGES += \
     fs_config_files
@@ -46,10 +57,8 @@ endif
 # video seccomp policy files
 # copy to system/vendor as well (since some devices may symlink to system/vendor and not create an actual partition for vendor)
 PRODUCT_COPY_FILES += \
-    device/qcom/msm8909/seccomp/mediacodec-seccomp.policy:vendor/etc/seccomp_policy/mediacodec.policy \
-    device/qcom/msm8909/seccomp/mediaextractor-seccomp.policy:vendor/etc/seccomp_policy/mediaextractor.policy \
-    device/qcom/msm8909/seccomp/mediacodec-seccomp.policy:system/vendor/etc/seccomp_policy/mediacodec.policy \
-    device/qcom/msm8909/seccomp/mediaextractor-seccomp.policy:system/vendor/etc/seccomp_policy/mediaextractor.policy
+    device/qcom/msm8909/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
+    device/qcom/msm8909/seccomp/mediaextractor-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
 
 PRODUCT_PROPERTY_OVERRIDES += \
        dalvik.vm.heapgrowthlimit=128m \
@@ -109,7 +118,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml
 
 #fstab.qcom
-PRODUCT_PACKAGES += fstab.qcom
+#PRODUCT_PACKAGES += fstab.qcom
 
 -include $(TOPDIR)hardware/qcom/audio/configs/msm8909/msm8909.mk
 
@@ -180,10 +189,6 @@ PRODUCT_LOCALES += th_TH vi_VN tl_PH hi_IN ar_EG ru_RU tr_TR pt_BR bn_IN mr_IN t
 PRODUCT_COPY_FILES += \
     device/qcom/msm8909/sensors/hals.conf:system/etc/sensors/hals.conf
 
-
-# add vendor manifest file
-PRODUCT_COPY_FILES += \
-    device/qcom/msm8909/vintf.xml:$(TARGET_COPY_OUT_VENDOR)/manifest.xml
 
 #Boot control HAL test app
 PRODUCT_PACKAGES_DEBUG += bootctl
