@@ -88,10 +88,10 @@ PRODUCT_PACKAGES += libGLES_android
 # Audio configuration file
 -include $(TOPDIR)hardware/qcom/audio/configs/msm8909/msm8909.mk
 
-#PRODUCT_BOOT_JARS += qcom.fmradio
+PRODUCT_BOOT_JARS += qcom.fmradio
 
-#PRODUCT_BOOT_JARS += tcmiface
-#PRODUCT_BOOT_JARS += qcmediaplayer
+PRODUCT_BOOT_JARS += tcmiface
+PRODUCT_BOOT_JARS += qcmediaplayer
 
 # QTI extended functionality of android telephony.
 # Required for MSIM manual provisioning and other related features.
@@ -204,3 +204,16 @@ PRODUCT_PACKAGES += android.hardware.health@1.0-impl \
                     libhealthd.msm
 #Supports verity
 PRODUCT_SUPPORTS_VERITY := false
+
+PRODUCT_PACKAGES += \
+    vendor.display.color@1.0-service \
+    vendor.display.color@1.0-impl
+
+# Fingerprint feature
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml \
+
+# Power
+PRODUCT_PACKAGES += \
+    android.hardware.power@1.0-service \
+    android.hardware.power@1.0-impl
