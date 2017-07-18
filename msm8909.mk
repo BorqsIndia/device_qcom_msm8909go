@@ -170,7 +170,12 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-service \
     android.hardware.light@2.0-impl \
     android.hardware.light@2.0-service \
-    android.hardware.configstore@1.0-service
+    android.hardware.configstore@1.0-service \
+    android.hardware.broadcastradio@1.0-impl
+
+PRODUCT_FULL_TREBLE_OVERRIDE := true
+
+PRODUCT_VENDOR_MOVE_ENABLED := true
 
 # Vibrator
 PRODUCT_PACKAGES += \
@@ -189,7 +194,7 @@ PRODUCT_LOCALES += th_TH vi_VN tl_PH hi_IN ar_EG ru_RU tr_TR pt_BR bn_IN mr_IN t
 
 # Sensor HAL conf file
 PRODUCT_COPY_FILES += \
-    device/qcom/msm8909/sensors/hals.conf:system/etc/sensors/hals.conf
+    device/qcom/msm8909/sensors/hals.conf:vendor/etc/sensors/hals.conf
 
 
 #Boot control HAL test app

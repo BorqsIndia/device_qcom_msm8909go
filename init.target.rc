@@ -35,9 +35,9 @@ on early-init
     symlink /data/tombstones /tombstones
 
 on fs
-    wait /dev/block/platform/soc/7824900.sdhci
-    symlink /dev/block/platform/soc/7824900.sdhci /dev/block/bootdevice
-    mount_all fstab.qcom
+    wait /dev/block/platform/soc/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+    mount_all /vendor/etc/fstab.qcom
     write /proc/sys/vm/swappiness 100
 
     # Keeping following partitions outside fstab file. As user may not have
@@ -73,7 +73,7 @@ on post-fs-data
 mkdir /data/vendor/camera 0770 camera camera
 
 #start camera server as daemon
-service qcamerasvr /system/bin/mm-qcamera-daemon
+service qcamerasvr /system/vendor/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
@@ -122,12 +122,12 @@ service thermal-engine /system/vendor/bin/thermal-engine
    socket thermal-send-rule stream 0660 system system
    group root
 
-service time_daemon /system/bin/time_daemon
+service time_daemon /system/vendor/bin/time_daemon
    class late_start
    user root
    group root
 
-service audiod /system/bin/audiod
+service audiod /system/vendor/bin/audiod
    class late_start
    user system
    group system
@@ -147,13 +147,13 @@ on boot
     start rmt_storage
     insmod /system/lib/modules/adsprpc.ko
 
-service wcnss-service /system/bin/wcnss_service
+service wcnss-service /system/vendor/bin/wcnss_service
     class main
     user system
     group system wifi radio
     oneshot
 
-service ppd /system/bin/mm-pp-daemon
+service ppd /system/vendor/bin/mm-pp-daemon
     class late_start
     disabled
     user system
@@ -220,7 +220,7 @@ service touch /system/bin/sh /system/etc/init.qti.synaptics_dsx_qhd.sh
    group root
    oneshot
    disabled
-service dts_configurator /system/bin/dts_configurator
+service dts_configurator /system/vendor/bin/dts_configurator
    class main
    user system
    group system

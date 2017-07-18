@@ -77,10 +77,10 @@ LOCAL_MODULE       := fstab.qcom
 LOCAL_MODULE_TAGS  := optional eng
 LOCAL_MODULE_CLASS := ETC
 LOCAL_SRC_FILES    := $(LOCAL_MODULE)
-LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
-ifeq ($(ENABLE_VENDOR_IMAGE), true)
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)
+#ifeq ($(ENABLE_VENDOR_IMAGE), true)
 #LOCAL_POST_INSTALL_CMD := echo $(VENDOR_FSTAB_ENTRY) >> $(TARGET_ROOT_OUT)/$(LOCAL_MODULE)
-endif
+#endif
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
@@ -190,6 +190,14 @@ RADIO_FILES := $(shell cd $(radio_dir) ; ls)
 $(foreach f, $(RADIO_FILES), \
     $(call add-radio-file,radio/$(f)))
 endif
+
+#Create dsp directory
+$(shell mkdir -p $(TARGET_OUT_VENDOR)/lib/dsp)
+
+# Create symbolic links for msadp
+$(shell  mkdir -p $(TARGET_OUT_VENDOR)/firmware; \
+        ln -sf /dev/block/bootdevice/by-name/msadp \
+        $(TARGET_OUT_VENDOR)/firmware/msadp)
 
 #----------------------------------------------------------------------
 # extra images

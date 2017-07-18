@@ -48,4 +48,6 @@
       { 00755, AID_SYSTEM,         AID_SYSTEM,         (1ULL << CAP_NET_BIND_SERVICE), "system/bin/cnss-daemon"},
       { 00755, AID_SYSTEM,         AID_RADIO,          (1ULL << CAP_NET_BIND_SERVICE), "system/vendor/bin/ims_rtp_daemon" },
       { 00755, AID_SYSTEM,         AID_RADIO,          (1ULL << CAP_NET_BIND_SERVICE), "vendor/bin/ims_rtp_daemon" },
+      { 00755, AID_GPS,            AID_GPS,            (1ULL << CAP_NET_BIND_SERVICE), "system/vendor/bin/slim_daemon" },
+      { 00755, AID_GPS,            AID_GPS,            (1ULL << CAP_NET_BIND_SERVICE), "vendor/bin/slim_daemon" },
 };
