@@ -176,9 +176,6 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl \
     android.hardware.vibrator@1.0-service \
 
-#Enable keymaster Impl HAL Compilation
-PRODUCT_PACKAGES += android.hardware.keymaster@3.0-impl
-
 # Defined the locales
 PRODUCT_LOCALES += th_TH vi_VN tl_PH hi_IN ar_EG ru_RU tr_TR pt_BR bn_IN mr_IN ta_IN te_IN zh_HK \
         in_ID my_MM km_KH sw_KE uk_UA pl_PL sr_RS sl_SI fa_IR kn_IN ml_IN ur_IN gu_IN or_IN en_ZA zh_CN
@@ -217,3 +214,16 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.power@1.0-service \
     android.hardware.power@1.0-impl
+
+#Enable QTI KEYMASTER and GATEKEEPER HIDLs
+ifeq ($(ENABLE_VENDOR_IMAGE), true)
+KMGK_USE_QTI_SERVICE := true
+endif
+
+#Enable AOSP KEYMASTER and GATEKEEPER HIDLs
+ifneq ($(KMGK_USE_QTI_SERVICE), true)
+PRODUCT_PACKAGES += android.hardware.gatekeeper@1.0-impl \
+                    android.hardware.gatekeeper@1.0-service \
+                    android.hardware.keymaster@3.0-impl \
+                    android.hardware.keymaster@3.0-service
+endif
