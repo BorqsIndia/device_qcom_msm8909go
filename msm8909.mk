@@ -62,7 +62,9 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
        dalvik.vm.heapgrowthlimit=128m \
-       dalvik.vm.heapminfree=6m
+       dalvik.vm.heapminfree=6m \
+       ro.config.low_ram=true
+
 $(call inherit-product, device/qcom/common/common.mk)
 
 PRODUCT_NAME := msm8909
