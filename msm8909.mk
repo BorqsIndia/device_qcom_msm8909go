@@ -1,5 +1,5 @@
 
-TARGET_USES_AOSP_FOR_AUDIO := false
+TARGET_USES_AOSP_FOR_AUDIO := true
 TARGET_USES_AOSP := true
 TARGET_USES_QCOM_BSP := false
 TARGET_USES_HWC2 := true
@@ -18,7 +18,7 @@ TARGET_USES_QTIC := true
 -include $(QCPATH)/common/config/qtic-config.mk
 endif
 
-TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := false
 
 # Default vendor configuration.
 ifeq ($(ENABLE_VENDOR_IMAGE),)
@@ -72,7 +72,7 @@ PRODUCT_DEVICE := msm8909
 # font rendering engine feature switch
 -include $(QCPATH)/common/config/rendering-engine.mk
 ifneq (,$(strip $(wildcard $(PRODUCT_RENDERING_ENGINE_REVLIB))))
-    MULTI_LANG_ENGINE := REVERIE
+    #MULTI_LANG_ENGINE := REVERIE
 #   MULTI_LANG_ZAWGYI := REVERIE
 endif
 
