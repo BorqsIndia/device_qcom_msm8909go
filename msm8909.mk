@@ -6,7 +6,6 @@ TARGET_USES_HWC2 := true
 TARGET_USES_GRALLOC1 := true
 ifeq ($(TARGET_USES_QCOM_BSP), true)
 # Add QC Video Enhancements flag
-TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 endif #TARGET_USES_QCOM_BSP
 
 ifeq ($(TARGET_USES_AOSP),true)
@@ -17,8 +16,6 @@ TARGET_USES_NQ_NFC := true
 TARGET_USES_QTIC := true
 -include $(QCPATH)/common/config/qtic-config.mk
 endif
-
-TARGET_ENABLE_QC_AV_ENHANCEMENTS := false
 
 # Default vendor configuration.
 ifeq ($(ENABLE_VENDOR_IMAGE),)
@@ -39,6 +36,7 @@ PRODUCT_PACKAGES += \
 # Enable features in video HAL that can compile only on this platform
 TARGET_USES_MEDIA_EXTENSIONS := true
 
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
 # Camera configuration file. Shared by passthrough/binderized camera HAL
 PRODUCT_PACKAGES += camera.device@1.0-impl
