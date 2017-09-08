@@ -31,6 +31,7 @@ ifeq ($(ENABLE_VENDOR_IMAGE), true)
 TARGET_USES_QTIC := false
 endif
 
+TARGET_USES_QTIC_EXTENSION := true
 #for android_filesystem_config.h
 PRODUCT_PACKAGES += \
     fs_config_files
