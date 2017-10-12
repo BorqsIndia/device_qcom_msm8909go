@@ -34,6 +34,8 @@ dalvik.vm.zygotemaxfailedboots=5
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
 
+sdm.debug.disable_skip_validate=1
+
 #enable dirty rect
 debug.sf.swaprect=1
 #enable app buffer composition
