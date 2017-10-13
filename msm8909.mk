@@ -77,9 +77,8 @@ ifneq (,$(strip $(wildcard $(PRODUCT_RENDERING_ENGINE_REVLIB))))
 #   MULTI_LANG_ZAWGYI := REVERIE
 endif
 
-# add vendor manifest file
-PRODUCT_COPY_FILES += \
-    device/qcom/msm8909/vintf.xml:$(TARGET_COPY_OUT_VENDOR)/manifest.xml
+DEVICE_MANIFEST_FILE := device/qcom/msm8909/manifest.xml
+DEVICE_MATRIX_FILE   := device/qcom/common/compatibility_matrix.xml
 
 PRODUCT_PACKAGES += android.hardware.media.omx@1.0-impl
 
