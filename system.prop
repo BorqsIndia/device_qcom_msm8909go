@@ -1,5 +1,5 @@
 #
-# system.prop for msm8909
+# system.prop for msm8909go
 #
 
 #rild.libpath=/system/lib/libreference-ril.so
@@ -70,7 +70,7 @@ mm.enable.qcom_parser=262143
 media.stagefright.use-awesome=false
 
 #
-#Disable split mode for 8909
+#Disable split mode for 8909go
 vendor.vidc.disable.split.mode=1
 #
 
@@ -128,7 +128,7 @@ ro.qc.sdk.audio.fluencetype=none
 persist.audio.fluence.voicecall=true
 persist.audio.fluence.voicerec=false
 persist.audio.fluence.speaker=true
-#Set for msm8909
+#Set for msm8909go
 tunnel.audio.encode = false
 ro.config.low_ram=true
 #Buffer size in kbytes for compress offload playback

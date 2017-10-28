@@ -44,20 +44,20 @@ PRODUCT_PACKAGES += android.hardware.camera.provider@2.4-impl
 # Enable binderized camera HAL
 PRODUCT_PACKAGES += android.hardware.camera.provider@2.4-service
 
-# media_profiles and media_codecs xmls for msm8909
+# media_profiles and media_codecs xmls for msm8909go
 ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS), true)
-PRODUCT_COPY_FILES += device/qcom/msm8909/media/media_profiles_8909.xml:system/etc/media_profiles.xml \
-                      device/qcom/msm8909/media/media_profiles_8909.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
-                      device/qcom/msm8909/media/media_codecs_8909.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
-                      device/qcom/msm8909/media/media_codecs_performance_8909.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml
+PRODUCT_COPY_FILES += device/qcom/msm8909go/media/media_profiles_8909.xml:system/etc/media_profiles.xml \
+                      device/qcom/msm8909go/media/media_profiles_8909.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
+                      device/qcom/msm8909go/media/media_codecs_8909.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
+                      device/qcom/msm8909go/media/media_codecs_performance_8909.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml
 endif
 
 
 # video seccomp policy files
 # copy to system/vendor as well (since some devices may symlink to system/vendor and not create an actual partition for vendor)
 PRODUCT_COPY_FILES += \
-    device/qcom/msm8909/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
-    device/qcom/msm8909/seccomp/mediaextractor-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
+    device/qcom/msm8909go/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
+    device/qcom/msm8909go/seccomp/mediaextractor-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
 
 PRODUCT_PROPERTY_OVERRIDES += \
        dalvik.vm.heapgrowthlimit=128m \
@@ -66,8 +66,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 $(call inherit-product, device/qcom/common/common.mk)
 
-PRODUCT_NAME := msm8909
-PRODUCT_DEVICE := msm8909
+PRODUCT_NAME := msm8909go
+PRODUCT_DEVICE := msm8909go
 
 # When can normal compile this module, need module owner enable below commands
 # font rendering engine feature switch
@@ -77,7 +77,7 @@ ifneq (,$(strip $(wildcard $(PRODUCT_RENDERING_ENGINE_REVLIB))))
 #   MULTI_LANG_ZAWGYI := REVERIE
 endif
 
-DEVICE_MANIFEST_FILE := device/qcom/msm8909/manifest.xml
+DEVICE_MANIFEST_FILE := device/qcom/msm8909go/manifest.xml
 DEVICE_MATRIX_FILE   := device/qcom/common/compatibility_matrix.xml
 
 PRODUCT_PACKAGES += android.hardware.media.omx@1.0-impl
@@ -107,9 +107,9 @@ endif
 
 # Listen configuration file
 PRODUCT_COPY_FILES += \
-    device/qcom/msm8909/listen_platform_info.xml:system/etc/listen_platform_info.xml
+    device/qcom/msm8909go/listen_platform_info.xml:system/etc/listen_platform_info.xml
 
-# Feature definition files for msm8909
+# Feature definition files for msm8909go
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
@@ -136,9 +136,9 @@ PRODUCT_PACKAGES += wcnss_service
 
 #wlan driver
 PRODUCT_COPY_FILES += \
-    device/qcom/msm8909/WCNSS_qcom_cfg.ini:vendor/etc/wifi/WCNSS_qcom_cfg.ini \
-    device/qcom/msm8909/WCNSS_wlan_dictionary.dat:persist/WCNSS_wlan_dictionary.dat \
-    device/qcom/msm8909/WCNSS_qcom_wlan_nv.bin:persist/WCNSS_qcom_wlan_nv.bin
+    device/qcom/msm8909go/WCNSS_qcom_cfg.ini:vendor/etc/wifi/WCNSS_qcom_cfg.ini \
+    device/qcom/msm8909go/WCNSS_wlan_dictionary.dat:persist/WCNSS_wlan_dictionary.dat \
+    device/qcom/msm8909go/WCNSS_qcom_wlan_nv.bin:persist/WCNSS_qcom_wlan_nv.bin
 
 PRODUCT_PACKAGES += \
     wpa_supplicant_overlay.conf \
@@ -193,7 +193,7 @@ PRODUCT_LOCALES += th_TH vi_VN tl_PH hi_IN ar_EG ru_RU tr_TR pt_BR bn_IN mr_IN t
 
 # Sensor HAL conf file
 PRODUCT_COPY_FILES += \
-    device/qcom/msm8909/sensors/hals.conf:vendor/etc/sensors/hals.conf
+    device/qcom/msm8909go/sensors/hals.conf:vendor/etc/sensors/hals.conf
 
 
 #Boot control HAL test app

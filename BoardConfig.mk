@@ -21,6 +21,8 @@ ifeq ($(TARGET_ARCH),)
 TARGET_ARCH := arm
 endif
 
+TARGET_BOARD_SUFFIX := go
+
 TARGET_COMPILE_WITH_MSM_KERNEL := true
 TARGET_KERNEL_APPEND_DTB := true
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(PWD)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/bin/arm-eabi-
@@ -31,7 +33,7 @@ BOARD_USES_GENERIC_AUDIO := true
 USE_CAMERA_STUB := true
 
 TARGET_DISABLE_DASH := true
--include $(QCPATH)/common/msm8909/BoardConfigVendor.mk
+-include $(QCPATH)/common/msm8909go/BoardConfigVendor.mk
 TARGET_COMPILE_WITH_MSM_KERNEL := true
 
 # set the cryptfs_hw directory path
@@ -50,7 +52,7 @@ TARGET_NO_RPC := true
 GET_FRAMEBUFFER_FORMAT_FROM_HWC := false
 
 BOOTLOADER_GCC_VERSION := arm-eabi-4.8
-BOOTLOADER_PLATFORM := msm8909# use msm8952 LK configuration
+BOOTLOADER_PLATFORM := msm8909# use msm8909 LK configuration
 
 #TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
 #TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
@@ -97,12 +99,12 @@ BOARD_PERSISTIMAGE_FILE_SYSTEM_TYPE := ext4
 
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk
 
-BOARD_EGL_CFG := device/qcom/msm8909/egl.cfg
+BOARD_EGL_CFG := device/qcom/msm8909go/egl.cfg
 
 ifeq ($(ENABLE_VENDOR_IMAGE), true)
-TARGET_RECOVERY_FSTAB := device/qcom/msm8909/recovery_vendor_variant.fstab
+TARGET_RECOVERY_FSTAB := device/qcom/msm8909go/recovery_vendor_variant.fstab
 else
-TARGET_RECOVERY_FSTAB := device/qcom/msm8909/recovery.fstab
+TARGET_RECOVERY_FSTAB := device/qcom/msm8909go/recovery.fstab
 endif
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x02000000
@@ -135,7 +137,7 @@ TARGET_USES_NEW_ION_API :=true
 TARGET_INIT_VENDOR_LIB := libinit_msm
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
-#Add support for firmare upgrade on msm8909
+#Add support for firmare upgrade on msm8909go
 HAVE_SYNAPTICS_I2C_RMI4_FW_UPGRADE := true
 
 #Enable peripheral manager
