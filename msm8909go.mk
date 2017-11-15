@@ -69,7 +69,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
        dalvik.vm.heapgrowthlimit=128m \
        dalvik.vm.heapminfree=6m \
-       ro.config.low_ram=true
+       ro.config.low_ram=true \
+       persist.cne.override.memlimit=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
        persist.radio.multisim.config=ssss
