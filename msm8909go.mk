@@ -63,6 +63,9 @@ PRODUCT_COPY_FILES += \
     device/qcom/msm8909go/seccomp/mediaextractor-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.vidc.disable.split.mode=1
+
+PRODUCT_PROPERTY_OVERRIDES += \
        dalvik.vm.heapgrowthlimit=128m \
        dalvik.vm.heapminfree=6m \
        ro.config.low_ram=true
@@ -84,7 +87,6 @@ DEVICE_MANIFEST_FILE := device/qcom/msm8909go/manifest.xml
 DEVICE_MATRIX_FILE   := device/qcom/common/compatibility_matrix.xml
 
 PRODUCT_PACKAGES += android.hardware.media.omx@1.0-impl
-
 
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
@@ -209,7 +211,7 @@ PRODUCT_PACKAGES += android.hardware.health@1.0-impl \
                     android.hardware.health@1.0-service \
                     libhealthd.msm
 #Supports verity
-PRODUCT_SUPPORTS_VERITY := false
+PRODUCT_SUPPORTS_VERITY := true
 
 PRODUCT_PACKAGES += \
     vendor.display.color@1.0-service \
