@@ -171,7 +171,6 @@ TARGET_HW_KEYMASTER_V03 := false
 
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm
 
-WITH_DEXPREOPT := false
 ifneq ($(TARGET_BUILD_VARIANT),user)
   # Retain classes.dex in APK's for non-user builds
   DEX_PREOPT_DEFAULT := nostripping
