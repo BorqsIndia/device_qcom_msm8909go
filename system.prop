@@ -212,3 +212,4 @@ qemu.hw.mainkeys=0
 
 #Split A2DP
 persist.bt.enable.splita2dp=false
+dalvik.vm.extra-opts=-Xcompiler-option --inline-max-code-units=0
