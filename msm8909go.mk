@@ -1,3 +1,5 @@
+#Go variant flag
+TARGET_HAS_LOW_RAM := true
 
 TARGET_USES_AOSP_FOR_AUDIO := false
 TARGET_USES_AOSP := true
@@ -11,11 +13,12 @@ endif #TARGET_USES_QCOM_BSP
 ifeq ($(TARGET_USES_AOSP),true)
 TARGET_USES_QTIC := false
 else
-DEVICE_PACKAGE_OVERLAYS := device/qcom/msm8937_64/overlay
 TARGET_USES_NQ_NFC := true
 TARGET_USES_QTIC := true
 -include $(QCPATH)/common/config/qtic-config.mk
 endif
+
+DEVICE_PACKAGE_OVERLAYS := device/qcom/msm8909go/overlay-go
 
 # Default vendor configuration.
 ifeq ($(ENABLE_VENDOR_IMAGE),)
@@ -82,6 +85,7 @@ DEVICE_MATRIX_FILE   := device/qcom/common/compatibility_matrix.xml
 
 PRODUCT_PACKAGES += android.hardware.media.omx@1.0-impl
 
+
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
 
@@ -91,7 +95,7 @@ PRODUCT_PACKAGES += libGLES_android
 PRODUCT_BOOT_JARS += qcom.fmradio
 
 PRODUCT_BOOT_JARS += tcmiface
-PRODUCT_BOOT_JARS += qcmediaplayer
+#PRODUCT_BOOT_JARS += qcmediaplayer
 
 # QTI extended functionality of android telephony.
 # Required for MSIM manual provisioning and other related features.
@@ -232,3 +236,10 @@ PRODUCT_PACKAGES += android.hardware.gatekeeper@1.0-impl \
                     android.hardware.keymaster@3.0-impl \
                     android.hardware.keymaster@3.0-service
 endif
+
+$(call inherit-product-if-exists, frameworks/base/data/sounds/AudioPackageGo.mk)
+
+# Inherit Go default properties, sets is-low-ram-device flag etc.
+$(call inherit-product, build/target/product/go_defaults.mk)
+
+PRODUCT_PROPERTY_OVERRIDES += dalvik.vm.foreground-heap-growth-multiplier=2.0

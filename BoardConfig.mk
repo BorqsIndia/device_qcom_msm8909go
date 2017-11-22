@@ -177,5 +177,8 @@ ifneq ($(TARGET_BUILD_VARIANT),user)
   DEX_PREOPT_DEFAULT := nostripping
 endif
 
-#Go variant flag
-TARGET_HAS_LOW_RAM := true
+ifeq ($(HOST_OS),linux)
+    ifeq ($(WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY),)
+        WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := true
+    endif
+endif
