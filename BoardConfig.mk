@@ -39,6 +39,8 @@ TARGET_COMPILE_WITH_MSM_KERNEL := true
 # set the cryptfs_hw directory path
 TARGET_CRYPTFS_HW_PATH := device/qcom/common/cryptfs_hw
 
+TARGET_USES_QCOM_DISPLAY_BSP := true
+
 #TODO: Fix-me: Setting TARGET_HAVE_HDMI_OUT to false
 # to get rid of compilation error.
 TARGET_HAVE_HDMI_OUT := false
@@ -156,7 +158,7 @@ SDCLANG := true
 TARGET_HW_DISK_ENCRYPTION := true
 endif
 
-TARGET_VB_NOT_ENABLED := true
+#TARGET_VB_NOT_ENABLED := true
 
 # Enable sensor multi HAL
 USE_SENSOR_MULTI_HAL := true
@@ -171,6 +173,7 @@ TARGET_HW_KEYMASTER_V03 := false
 
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm
 
+WITH_DEXPREOPT := false
 ifneq ($(TARGET_BUILD_VARIANT),user)
   # Retain classes.dex in APK's for non-user builds
   DEX_PREOPT_DEFAULT := nostripping
