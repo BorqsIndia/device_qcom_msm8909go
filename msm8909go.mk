@@ -46,6 +46,7 @@ PRODUCT_PACKAGES += camera.device@1.0-impl
 PRODUCT_PACKAGES += android.hardware.camera.provider@2.4-impl
 # Enable binderized camera HAL
 PRODUCT_PACKAGES += android.hardware.camera.provider@2.4-service
+PRODUCT_PACKAGES += hal-server
 
 # media_profiles and media_codecs xmls for msm8909go
 ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS), true)
