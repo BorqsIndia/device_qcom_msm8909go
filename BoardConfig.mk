@@ -39,6 +39,8 @@ TARGET_COMPILE_WITH_MSM_KERNEL := true
 # set the cryptfs_hw directory path
 TARGET_CRYPTFS_HW_PATH := device/qcom/common/cryptfs_hw
 
+TARGET_USES_QCOM_DISPLAY_BSP := true
+
 #TODO: Fix-me: Setting TARGET_HAVE_HDMI_OUT to false
 # to get rid of compilation error.
 TARGET_HAVE_HDMI_OUT := false
