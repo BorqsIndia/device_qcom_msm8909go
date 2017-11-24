@@ -213,10 +213,6 @@ PRODUCT_PACKAGES += android.hardware.health@1.0-impl \
 #Supports verity
 PRODUCT_SUPPORTS_VERITY := true
 
-PRODUCT_PACKAGES += \
-    vendor.display.color@1.0-service \
-    vendor.display.color@1.0-impl
-
 # Fingerprint feature
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml \
