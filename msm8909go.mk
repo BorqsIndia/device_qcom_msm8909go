@@ -242,3 +242,6 @@ $(call inherit-product, build/target/product/go_defaults.mk)
 
 PRODUCT_PROPERTY_OVERRIDES += dalvik.vm.foreground-heap-growth-multiplier=2.0
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
+
+# Add soft home, back and multitask keys
+PRODUCT_PROPERTY_OVERRIDES += qemu.hw.mainkeys=1
