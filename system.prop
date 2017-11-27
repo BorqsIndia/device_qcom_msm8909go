@@ -217,3 +217,4 @@ ro.emmc_size=8GB
 
 #Split A2DP
 persist.bt.enable.splita2dp=false
+dalvik.vm.extra-opts=-Xcompiler-option --inline-max-code-units=0
