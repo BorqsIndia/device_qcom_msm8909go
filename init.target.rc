@@ -165,12 +165,6 @@ service per_mgr /system/bin/pm-service
     user system
     group system
 
-on property:init.svc.surfaceflinger=stopped
-    stop ppd
-
-on property:init.svc.surfaceflinger=running
-    start ppd
-
 service imsstarter /vendor/bin/init.qti.ims.sh
     class main
     oneshot
