@@ -182,6 +182,10 @@ PRODUCT_PACKAGES += \
     android.hardware.configstore@1.0-service \
     android.hardware.broadcastradio@1.0-impl
 
+PRODUCT_PACKAGES += \
+    libandroid_net \
+    libandroid_net_32
+
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 
 PRODUCT_VENDOR_MOVE_ENABLED := true
