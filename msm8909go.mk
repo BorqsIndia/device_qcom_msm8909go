@@ -71,6 +71,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
        dalvik.vm.heapminfree=6m \
        ro.config.low_ram=true
 
+PRODUCT_PROPERTY_OVERRIDES += \
+       persist.radio.multisim.config=ssss
+
 $(call inherit-product, device/qcom/common/common.mk)
 
 PRODUCT_NAME := msm8909go
