@@ -216,10 +216,6 @@ PRODUCT_PACKAGES += android.hardware.health@1.0-impl \
 #Supports verity
 PRODUCT_SUPPORTS_VERITY := false
 
-# Fingerprint feature
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml \
-
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.0-service \
