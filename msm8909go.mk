@@ -244,3 +244,4 @@ PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 
 # Add soft home, back and multitask keys
 PRODUCT_PROPERTY_OVERRIDES += qemu.hw.mainkeys=1
+PRODUCT_PROPERTY_OVERRIDES += rild.libpath=/vendor/lib/libril-qc-qmi-1.so
