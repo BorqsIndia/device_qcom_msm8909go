@@ -184,6 +184,10 @@ PRODUCT_PACKAGES += \
     android.hardware.configstore@1.0-service \
     android.hardware.broadcastradio@1.0-impl
 
+ifeq ($(TARGET_HAS_LOW_RAM),true)
+TARGET_EXCLUDES_DISPLAY_PP := true
+endif #TARGET_HAS_LOW_RAM
+
 PRODUCT_PACKAGES += \
     libandroid_net \
     libandroid_net_32
