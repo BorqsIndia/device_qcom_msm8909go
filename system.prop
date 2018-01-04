@@ -36,6 +36,7 @@ dalvik.vm.heapsize=36m
 dalvik.vm.zygotemaxfailedboots=5
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
+debug.sdm.support_writeback=0
 
 sdm.debug.disable_skip_validate=1
 
