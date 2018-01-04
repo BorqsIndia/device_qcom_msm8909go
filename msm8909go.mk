@@ -67,12 +67,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.vidc.disable.split.mode=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
-       dalvik.vm.heapgrowthlimit=128m \
-       dalvik.vm.heapminfree=6m \
-       ro.config.low_ram=true
+       persist.radio.multisim.config=ssss \
+       persist.cne.override.memlimit=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
-       persist.radio.multisim.config=ssss
+       dalvik.vm.heapminfree=6m \
+       dalvik.vm.heapstartsize=8m \
+       dalvik.vm.heaptargetutilization=0.75 \
+       dalvik.vm.heapmaxfree=8m \
 
 $(call inherit-product, device/qcom/common/common.mk)
 
