@@ -54,7 +54,7 @@ PRODUCT_COPY_FILES += device/qcom/msm8909go/media/media_profiles_8909.xml:system
                       device/qcom/msm8909go/media/media_profiles_8909.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_vendor.xml \
                       device/qcom/msm8909go/media/media_codecs_8909.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
                       device/qcom/msm8909go/media/media_codecs_performance_8909.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
-                      device/qcom/msm8909/media/media_codecs_vendor_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor_audio.xml
+                      device/qcom/msm8909go/media/media_codecs_vendor_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor_audio.xml
 endif
 
 
