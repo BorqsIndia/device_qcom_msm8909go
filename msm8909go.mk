@@ -77,6 +77,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
        dalvik.vm.heaptargetutilization=0.75 \
        dalvik.vm.heapmaxfree=8m \
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sdm.support_writeback=0
+
 $(call inherit-product, device/qcom/common/common.mk)
 
 PRODUCT_NAME := msm8909go
