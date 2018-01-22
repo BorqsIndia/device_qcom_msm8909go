@@ -39,6 +39,7 @@ persist.demo.hdmirotationlock=false
 debug.sdm.support_writeback=0
 
 sdm.debug.disable_skip_validate=1
+debug.sf.recomputecrop=0
 
 #enable dirty rect
 debug.sf.swaprect=1
