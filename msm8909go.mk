@@ -101,6 +101,12 @@ PRODUCT_PACKAGES += android.hardware.media.omx@1.0-impl
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
 
+#
+# system prop for opengles version
+#
+# 196608 is decimal for 0x30000 to report version 3
+ro.opengles.version=196608
+
 # Audio configuration file
 -include $(TOPDIR)hardware/qcom/audio/configs/msm8909/msm8909.mk
 
