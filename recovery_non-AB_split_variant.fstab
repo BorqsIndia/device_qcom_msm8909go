@@ -25,7 +25,7 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-# Vendor variant of recovery.fstab. Same as recovery.fstab, with additional vendor entry.
+# Non A/B, split(with vendor.img) recovery.fstab variant.
 
 #device         mount point      fstype        [device2] [length=]
 /dev/block/bootdevice/by-name/system       /system         ext4    ro,barrier=1                                                    wait
@@ -36,4 +36,3 @@
 /dev/block/bootdevice/by-name/boot         /boot           emmc    defaults                                                        defaults
 /dev/block/bootdevice/by-name/recovery     /recovery       emmc    defaults                                                        defaults
 /dev/block/bootdevice/by-name/misc         /misc           emmc    defaults                                                        defaults
-

@@ -36,6 +36,9 @@ TARGET_USES_QTIC_EXTENSION := true
 PRODUCT_PACKAGES += \
     fs_config_files
 
+# Default A/B configuration.
+ENABLE_AB ?= false
+
 # Enable features in video HAL that can compile only on this platform
 TARGET_USES_MEDIA_EXTENSIONS := true
 
@@ -255,6 +258,19 @@ $(call inherit-product, build/target/product/go_defaults.mk)
 
 PRODUCT_PROPERTY_OVERRIDES += dalvik.vm.foreground-heap-growth-multiplier=2.0
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
+
+ifeq ($(ENABLE_AB),true)
+#A/B related packages
+PRODUCT_PACKAGES += update_engine \
+                    update_engine_client \
+                    update_verifier \
+                    bootctrl.msm8909 \
+                    brillo_update_payload \
+                    android.hardware.boot@1.0-impl \
+                    android.hardware.boot@1.0-service
+#Boot control HAL test app
+PRODUCT_PACKAGES_DEBUG += bootctl
+endif
 
 # Add soft home, back and multitask keys
 PRODUCT_PROPERTY_OVERRIDES += qemu.hw.mainkeys=1
