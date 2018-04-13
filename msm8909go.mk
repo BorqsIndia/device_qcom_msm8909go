@@ -44,6 +44,8 @@ TARGET_USES_MEDIA_EXTENSIONS := true
 
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
+TARGET_USES_LEGACY_CAMERA_HAL := true
+
 # Camera configuration file. Shared by passthrough/binderized camera HAL
 PRODUCT_PACKAGES += camera.device@1.0-impl
 PRODUCT_PACKAGES += android.hardware.camera.provider@2.4-impl
