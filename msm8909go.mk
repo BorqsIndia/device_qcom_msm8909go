@@ -71,7 +71,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.vidc.disable.split.mode=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
-       persist.radio.multisim.config=ssss \
        persist.cne.override.memlimit=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
