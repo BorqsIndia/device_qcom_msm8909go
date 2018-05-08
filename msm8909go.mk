@@ -10,6 +10,9 @@ ifeq ($(TARGET_USES_QCOM_BSP), true)
 # Add QC Video Enhancements flag
 endif #TARGET_USES_QCOM_BSP
 
+#For targets which donot support vulkan
+TARGET_NOT_SUPPORT_VULKAN :=true
+
 ifeq ($(TARGET_USES_AOSP),true)
 TARGET_USES_QTIC := false
 else
