@@ -152,6 +152,10 @@ PRODUCT_PACKAGES += libSubSystemShutdown
 
 PRODUCT_PACKAGES += wcnss_service
 
+#FDE support
+PRODUCT_COPY_FILES += \
+    device/qcom/msm8909go/init.qti.qseecomd.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qti.qseecomd.sh
+
 #wlan driver
 PRODUCT_COPY_FILES += \
     device/qcom/msm8909go/WCNSS_qcom_cfg.ini:vendor/etc/wifi/WCNSS_qcom_cfg.ini \
