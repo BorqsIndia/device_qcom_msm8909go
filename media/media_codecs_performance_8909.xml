@@ -114,7 +114,7 @@
         <MediaCodec name="OMX.qti.video.decoder.mpeg4sw" update="true">
             <Type name="video/mp4v-es">
                 <Limit name="measured-frame-rate-176x144" range="270-270" />
-                <Limit name="measured-frame-rate-480x360" range="482-482" />
+                <Limit name="measured-frame-rate-480x360" range="172-200" />
             </Type>
             <Type name="video/mp4v-esdp">
                 <Limit name="measured-frame-rate-480x360" range="482-482" />
