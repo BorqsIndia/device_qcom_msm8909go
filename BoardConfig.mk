@@ -174,7 +174,7 @@ TARGET_PER_MGR_ENABLED := true
 MALLOC_SVELTE := true
 
 ifeq ($(TARGET_USES_AOSP), true)
-TARGET_HW_DISK_ENCRYPTION := false
+TARGET_HW_DISK_ENCRYPTION := true
 else
 # SDClang configuration
 SDCLANG := true
@@ -193,7 +193,7 @@ TARGET_USES_SSC := false
 FEATURE_QCRIL_UIM_SAP_SERVER_MODE := true
 
 # Control flag between KM versions
-TARGET_HW_KEYMASTER_V03 := false
+TARGET_HW_KEYMASTER_V03 := true
 
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm
 
