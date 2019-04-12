@@ -214,3 +214,6 @@ ro.emmc_size=8GB
 
 #Split A2DP
 persist.bt.enable.splita2dp=false
+
+#property to indicate if it is a feature phone
+sys.qcom.feature_phone=false
