@@ -72,10 +72,6 @@ PRODUCT_COPY_FILES += \
     device/qcom/msm8909go/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
     device/qcom/msm8909go/seccomp/mediaextractor-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
 
-PRODUCT_COPY_FILES += \
-    device/qcom/msm8909go/soc_matrix_keypad_0.kl:system/usr/keylayout/soc_matrix_keypad_0.kl \
-    device/qcom/msm8909go/soc_matrix_keypad_0.idc:system/usr/idc/soc_matrix_keypad_0.idc
-
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.vidc.disable.split.mode=1
 
@@ -238,6 +234,7 @@ PRODUCT_LOCALES := en_US
 # Sensor HAL conf file
 PRODUCT_COPY_FILES += \
     device/qcom/msm8909go/sensors/hals.conf:vendor/etc/sensors/hals.conf
+
 
 #Boot control HAL test app
 PRODUCT_PACKAGES_DEBUG += bootctl
